@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/custom_bootstrap.css" />
+  <title>Baby You Can Buy My Car</title>
+</head>
+
+<body>
+  <div class="container w-75 pt-5">
+    <div class="text-center">
+      <img src="/images/carLogo.png" alt="" width="200px" Car logo />
+      <p>A marketplace for gently used vehicles</p>
+    </div>
+    <div id="notSignedIn" class="d-none d-flex justify-content-evenly align-items-stretch">
+      <div class="d-flex flex-column gap-2 border border-3 rounded p-3">
+        <h4>Create an account!</h4>
+        <label for="#username">Account username</label><input placeholder="JoeTest" id="username" />
+        <label for="#email">Optional email</label><input placeholder="email@example.com" id="email" />
+        <div class="form-check mt-1">
+          <input class="form-check-input" type="checkbox" value="granted" id="agreeToTOS">
+          <label class="form-check-label small" for="agreeToTOS">I agree to BYCBMC's <a href="terms_of_service.html"
+              target="_blank">Terms of Service</a>.</label>
+        </div>
+
+        <button type="button" class="btn btn-primary disabled" id="createAccount">Create account!</button>
+      </div>
+      <div id="existingUsers" class="d-flex flex-column gap-2  border border-3 rounded p-3">
+        <h4>Sign in!</h4>
+        Or, sign in as one of these users:
+        <select id="existingUsersSelect"></select>
+        <button type="button" class="btn btn-primary" id="signIn">Sign in!</button>
+      </div>
+    </div>
+    <div id="signedIn" class="d-none container col-sm-9 col-lg-6 border border-3 rounded p-3 mx-auto">
+      <p id="welcomeMessage">Hello, user!</p>
+      <div id="unverifiedUI" class="d-none">
+        <p id="statusMsg">Looking up your verification status...</p>
+        <div class="d-flex flex-column">
+          <div class="d-flex flex-row gap-1">
+            <button type="button" class="btn btn-primary my-2 opacity-50 w-75 " id="runPrefill">Pre-fill some
+              data</button>
+            <a href="#" class="link-info" data-bs-toggle="tooltip"
+              title="If your user has already supplied information that IDV needs, like their full name or email address, you can send that to Plaid Identity Verification before you start the process. This simulates that step by sending Plaid some test user data that's hard-coded on the server">?</a>
+          </div>
+          <button type="button" class="btn btn-primary button-md opacity-50 w-75 my-2" id="startLinkIDV">Verify my
+            identity</button>
+        </div>
+        <div class="px-3 py-1 my-2 bg-warning">
+          <p>Less common IDV Flows</p>
+          <div class="d-flex justify-content-between gap-2">
+            <button type="button" class="btn btn-primary button-md mb-1" id="genShareableUrl">Generate a Shareable
+              URL</button>
+            <button type="button" class="btn btn-primary button-md mb-1" id="startIDVServerOnly">Server-only
+              verification</button>
+          </div>
+          <p id="urlArea"></p>
+
+          <div id="fakeWebhookArea" class="d-none mt-1">
+            <button type="button" class="btn btn-secondary button-md mb-1" id="fakeWebhook">(Simulate receiving a
+              webhook)</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="verifiedUI" class="d-none">
+        <p><span id="personalInfo">Hello!</span></p>
+      </div>
+      <div id="debug" class="accordion">
+        <div class="accordion-item" id="debugAreaAccordion">
+          <h2 class="accordion-header" id="debugOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              Debug Tools
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="debugOne"
+            data-bs-parent="#debugAreaAccordion">
+            <div class="accordion-body">
+              <p>These are for debugging purposes -- you wouldn't normally want to share this information with your end
+                user.</p>
+              <button type="button" class="btn btn-primary button-md  my-3" id="getMostRecent">See my most recent
+                attempt</button>
+              <button type="button" class="btn btn-primary button-md  my-3" id="getIDVList">See all my IDV
+                attempts</button>
+              <select class="d-block d-none" id="listOfAttempts"></select>
+              <div id="idvAttemptInfo" class="d-none">
+                <table class="table table-striped table-sm" style="max-width: 350px;">
+                  <thead>
+                    <tr>
+                      <td colspan="2" id="idvAttemptSummary"> --Attempt-- </td>
+                    </tr>
+                  </thead>
+                  <tr>
+                    <td>Overall Status</td>
+                    <td id="idvAttOverallStatus" style="font-weight: 700"></td>
+                  </tr>
+                  <tr>
+                    <td>Accepted ToS?</td>
+                    <td id="idvAttTos"></td>
+                  </tr>
+                  <tr>
+                    <td>Verified SMS?</td>
+                    <td id="idvAttSMS"></td>
+                  </tr>
+                  <tr>
+                    <td>"Lightning" Check?</td>
+                    <td id="idvAttKYC"></td>
+                  </tr>
+                  <tr>
+                    <td>Documentation Check?</td>
+                    <td id="idvAttDocs"></td>
+                  </tr>
+                  <tr>
+                    <td>Selfie Check?</td>
+                    <td id="idvAttSelfie"></td>
+                  </tr>
+                  <tr>
+                    <td>Risk Check?</td>
+                    <td id="idvAttRisk"></td>
+                  </tr>
+                </table>
+                <p>For more details, make sure to see the JavaScript console</p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="btn btn-danger my-3" id="signOut">Sign out</button>
+      <div id="output"></div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.plaid.com/link/v2/stable/link-initialize.js"></script>
+  <script type="module" src="js/client.js"></script>
+
+</body>
+
+</html>
