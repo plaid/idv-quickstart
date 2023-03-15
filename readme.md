@@ -20,7 +20,7 @@ options, you have access. Otherwise, talk to your account manager or
 [file a support ticket](https://dashboard.plaid.com/support) to request access
 to Identity Verification.
 
-## 1. Clone the repository
+## 2. Clone the repository
 
 Using https:
 
@@ -36,12 +36,12 @@ git clone git@github.com:plaid/idv-sample.git
 cd idv-sample
 ```
 
-## 2. Install the required packages
+## 3. Install the required packages
 
 Run `npm install` inside your directory to install of the Node packages required
 for this application to run.
 
-## 3. Create an Identity Verification template if you don't have one already
+## 4. Create an Identity Verification template if you don't have one already
 
 1. Head over to the "Identity Verification and Monitor" section of the dashboard
    (you can find it in the drop-down list on the upper left).
@@ -77,7 +77,7 @@ for this application to run.
    back to this soon.
 9. Click **Publish changes** and exit the editor.
 
-## 4. Set up your environment variables
+## 5. Set up your environment variables
 
 Copy `.env.template` to a new file called `.env`. Then open up `.env` in your
 favorite code editor and fill out the values.
@@ -103,7 +103,7 @@ a future step.
 production application using an environment file with secrets in it. Use some
 kind of Secrets Manager (provided by most commercial cloud providers) instead
 
-## 5. (Optional) Set up your webhook receiver
+## 6. (Optional) Set up your webhook receiver
 
 This application makes use of webhooks in certain flows so that it can receive
 messages from Plaid that the user is done with their Identity Verification
@@ -155,7 +155,7 @@ sure to add the new webhook to the dashboard.
 The code that is used to process these endpoints is contained in the
 `webhookServer.js` file.
 
-## 6. Run the application!
+## 7. Run the application!
 
 You can run your application by typing
 
@@ -405,7 +405,7 @@ complete the process.
 5. The client, meanwhile, is performing some simple polling to fetch this
    database entry every few seconds. You're free to build something more
    sophisticated in your app.
-6. If you don't have webhooks installed, the `/server/fake_webhook` endpoint on
+6. If you don't have webhooks working, the `/server/fake_webhook` endpoint on
    the server will pretend as though it has received a webhook for this user by
    looking up the most recent Identity Verification session ID that we have
    stored for this user. Then it will perform steps 4-5 with this session ID.
@@ -467,7 +467,7 @@ original Identity Verification template.
    session ID and it updates your user's entry in the database accordingly.
 4. Like in the previous flow, the client is just performing some simple polling
    to re-fetch this database entry every few seconds.
-5. If you don't have webhooks installed, the `/server/fake_webhook` endpoint on
+5. If you don't have webhooks working, the `/server/fake_webhook` endpoint on
    the server will pretend as though it has received a webhook for this user by
    looking up the most recent Identity Verification session ID that we have
    stored for this user and then running steps 3-4.
