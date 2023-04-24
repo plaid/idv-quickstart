@@ -13,6 +13,9 @@ application.
 
 ## 1. Make sure you have access to Identity Verification
 
+First, if you haven't already done so, 
+[sign up for your free Plaid API keys](https://dashboard.plaid.com/signup).
+
 You may not have access to Identity Verification initially. Confirm your access
 in the Plaid Dashboard by selecting the dropdown list on the upper left with
 your team name. If you see "Identity Verification & Monitor" as one of the
