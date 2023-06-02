@@ -71,7 +71,6 @@ const showSimpleIDVResults = function (results) {
     "#idvAttTos": "accept_tos",
     "#idvAttSMS": "verify_sms",
     "#idvAttKYC": "kyc_check",
-    "#idvAttSMS": "verify_sms",
     "#idvAttRisk": "risk_check",
     "#idvAttDocs": "documentary_verification",
     "#idvAttSelfie": "selfie_check",
