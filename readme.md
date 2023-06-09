@@ -28,15 +28,15 @@ to Identity Verification.
 Using https:
 
 ```
-git clone https://github.com/plaid/idv-sample
-cd idv-sample
+git clone https://github.com/plaid/idv-quickstart
+cd idv-quickstart
 ```
 
 Alternatively, if you use ssh:
 
 ```
-git clone git@github.com:plaid/idv-sample.git
-cd idv-sample
+git clone git@github.com:plaid/idv-quickstart.git
+cd idv-quickstart
 ```
 
 ## 3. Install the required packages
