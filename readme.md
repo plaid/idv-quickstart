@@ -6,6 +6,10 @@ This fictional used car marketplace application shows you how to verify a user's
 identity using Plaid Identity Verification. This application uses NodeJS on the
 backend, and vanilla JavaScript on the frontend.
 
+## Demo video
+
+For a video tour and walkthrough of this sample app, check out [Plaid Identity Verification: Demo Video](https://www.youtube.com/watch?v=5EZwC5w6KCw&t=1388s).
+
 # Installation
 
 We recommend having node version 16.x.x or later before attempting to run this
