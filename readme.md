@@ -8,7 +8,7 @@ backend, and vanilla JavaScript on the frontend.
 
 ## Demo video
 
-For a video tour and walkthrough of this sample app, check out [Plaid Identity Verification: Demo Video](https://www.youtube.com/watch?v=5EZwC5w6KCw&t=1388s).
+For a video tour and walkthrough of this sample app, check out the [Plaid Identity Verification: Demo Video](https://www.youtube.com/watch?v=5EZwC5w6KCw).
 
 # Installation
 
