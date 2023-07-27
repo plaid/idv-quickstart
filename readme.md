@@ -57,27 +57,27 @@ for this application to run.
 3. If there's already an Identity Verification template you want to use, you can
    skip ahead to the next section.
 4. Otherwise, click the **New Template** button.
-5. Fill out the **Setup** form however you'd like. Note that you are required to
-   enter a real working URL as your privacy policy link. We also checked
-   **Attempt to auto-fill customer PII** because it's fun to see. :) You should
+5. Fill out the **Setup** form however you'd like. We checked **Attempt to auto-fill customer PII** because it's fun to see. :) Note that you are required to
+enter a real working URL as your privacy policy link. You should
    also leave **Verify Phone Number with SMS** checked -- you would only uncheck
    this if your application already verifies the user's phone number through a
    separate mechanism.
 6. Pick any color you'd like on the **Design** screen.
-7. For the **Workflow**, you can decide on the behavior you'd like to see.
+7. For the **Workflow**, you can configure  the behavior you'd like to see under Workflow Management.
 
+     PII Verification
    - Lightning verification works by comparing the user's verified phone number
      and information again several data sources.
    - Document verification asks your user to take pictures of documentation such
      as drivers licenses or passports.
-   - Selfie check asks your user to verify they are a real person by capturing
-     footage of themselves on their phone. Sandbox mode doesn't use selfie
-     check.
    - Select whatever workflow you would like to see. **Fallback to document**
      verification is a common option, but you could also select **Require both
      lightning and document verification** if you wish to experience the entire
      Identity Verification process. You can always change this later.
-   - Selfie check currently does not run in the Sandbox environment, so the
+
+   Selfie Behavior 
+   - Selfie check asks your user to verify they are a real person by capturing
+     footage of themselves on their phone. Sandbox mode doesn't use selfie so the
      Selfie Behavior you select doesn't really matter.
 
 8. You can leave **Rulesets** with the default values for now, but we'll come
@@ -203,7 +203,7 @@ workflow), Identity Verification will fall back to Document verification.
 
 In Document verification, you will be asked to take pictures of an appropriate
 piece of identification using your phone. In the Sandbox environment, the
-application will assume you always assume you submitted a valid drivers license
+application will assume you always submit a valid drivers license
 with the same name and date of birth as that of our test user. (Leslie Knope,
 January 18, 1975)
 
@@ -246,8 +246,8 @@ app.
 
 If you want to see more details about a user's latest Identity Verification
 attempt, the best place to do this would be the Identity Verification section of
-the Plaid Dashboard. From there, you'll be able to see full details about every
-user attempt: What they entered, why they might have failed, and you can perform
+the Plaid Dashboard. Click into the verificaiton template you used in the demo. From there, you'll be able to see full details about every
+user attempt by status: What they entered, why they might have failed, and you can perform
 important actions like ask your user to retry different steps.
 
 You can also see details about a user's Identity Verification attempts by
