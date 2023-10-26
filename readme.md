@@ -93,8 +93,8 @@ favorite code editor and fill out the values.
 cp .env.template .env
 ```
 
-You can get your `PLAID_CLIENT_ID` and `PLAID_SECRET` values from Keys section
-of the [Plaid dashboard](https://dashboard.plaid.com/account/keys)
+You can get your `PLAID_CLIENT_ID` and `PLAID_SECRET` values from the Keys section
+of the [Plaid dashboard](https://dashboard.plaid.com/developers/keys)
 
 You can keep `sandbox` as your environment.
 
