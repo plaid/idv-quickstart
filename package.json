@@ -29,8 +29,8 @@
     "escape-html": "^1.0.3",
     "express": "^4.18.2",
     "moment": "^2.29.4",
-    "nodemon": "^2.0.22",
-    "plaid": "^12.0.0",
+    "nodemon": "^3.1.7",
+    "plaid": "^30.0.0",
     "sqlite": "^4.1.2",
     "sqlite3": "^5.1.6",
     "uuid": "^9.0.0"

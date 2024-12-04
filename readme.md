@@ -21,11 +21,10 @@ First, if you haven't already done so,
 [sign up for your free Plaid API keys](https://dashboard.plaid.com/signup).
 
 You may not have access to Identity Verification initially. Confirm your access
-in the Plaid Dashboard by selecting the dropdown list on the upper left with
-your team name. If you see "Identity Verification & Monitor" as one of the
-options, you have access. Otherwise, talk to your account manager or
-[file a support ticket](https://dashboard.plaid.com/support) to request access
-to Identity Verification.
+in the Plaid Dashboard by looking for the "Identity Verification" product in the
+left-hand nav bar, under the "Products" grouping. If it's not present, talk to 
+your account manager or [file a support ticket](https://dashboard.plaid.com/support)
+to request access to Identity Verification.
 
 ## 2. Clone the repository
 
@@ -50,9 +49,9 @@ for this application to run.
 
 ## 4. Create an Identity Verification template if you don't have one already
 
-1. Head over to the "Identity Verification and Monitor" section of the dashboard
-   (you can find it in the drop-down list on the upper left).
-2. Select "Switch to Sandbox" on the bottom left of your screen to set up a
+1. Head over to the "Identity Verification" section of the dashboard
+   (you can find it under "Products" in the left nav).
+2. Switch the toggle on the upper right of your screen to Sandbox to set up a
    template in Sandbox mode
 3. If there's already an Identity Verification template you want to use, you can
    skip ahead to the next section.
@@ -66,13 +65,13 @@ enter a real working URL as your privacy policy link. You should
 7. For the **Workflow**, you can configure  the behavior you'd like to see under Workflow Management.
 
      PII Verification
-   - Lightning verification works by comparing the user's verified phone number
+   - Data source verification works by comparing the user's verified phone number
      and information again several data sources.
    - Document verification asks your user to take pictures of documentation such
      as drivers licenses or passports.
    - Select whatever workflow you would like to see. **Fallback to document**
      verification is a common option, but you could also select **Require both
-     lightning and document verification** if you wish to experience the entire
+     data source and document verification** if you wish to experience the entire
      Identity Verification process. You can always change this later.
 
    Selfie Behavior 
@@ -103,7 +102,7 @@ you created above. You can do this by selecting your template from the
 [templates screen](https://idv-playground.plaid.com/flow/templates/), selecting
 the template you created, and then clicking the **Integration** button on top.
 
-You can leave `LIGHTNING_ONLY_NO_SMS_ID` blank for now. We'll return to this in
+You can leave `DATA_SOURCE_ONLY_NO_SMS_ID` blank for now. We'll return to this in
 a future step.
 
 **NOTE:** .env files are a convenient local development tool. Never run a
@@ -195,7 +194,7 @@ identity, that of Leslie Knope with the values specified
 [here](https://plaid.com/docs/identity-verification/testing/). The UI in Sandbox
 mode will also give you these values in the upper-right side of the screen.
 
-With Lightning verification, if you fill out these values correctly, your
+With Data Source verification, if you fill out these values correctly, your
 identity will be accepted.
 
 If you fill out these values incorrectly (and have selected the appropriate
@@ -207,7 +206,7 @@ application will assume you always submit a valid drivers license
 with the same name and date of birth as that of our test user. (Leslie Knope,
 January 18, 1975)
 
-So if you wish to see what a "failed Lightning, but passed Documentation" flow
+So if you wish to see what a "failed Data Source, but passed Documentation" flow
 looks like, try entering a different phone number, social security number,
 and/or address, but make sure to enter the correct name and birthday.
 
@@ -426,21 +425,21 @@ situations, you can attempt to verify your user's identity completely on the
 server.
 
 For the backend-only flow to work, you'll need to make sure you're using an
-Identity Verification template that is using the "Lightning Only" flow, and
+Identity Verification template that is using the "Data Source Only" flow, and
 doesn't require SMS verification.
 
 To create a new template, follow the steps for creating an Identity Verification
 template at the beginning of this readme, but with the following exceptions:
 
 1. Be sure to _uncheck_ **Verify Phone Number with SMS** in the Setup panel
-2. For the workflow, select **Lightning Only**
+2. For the workflow, select **Data Source Only**
 
 **Warning:** You should only skip verifying your user's phone number in Identity
 Verification if your application is already performing this verification on its
 own.
 
 Copy the template ID for the template you just created, and paste that into your
-.env file as the value for the `LIGHTNING_ONLY_NO_SMS_ID` entry. If you're
+.env file as the value for the `DATA_SOURCE_ONLY_NO_SMS_ID` entry. If you're
 running `npm run watch`, the server should automatically restart.
 
 You can then start the backend-only flow by checking the Terms of Service
