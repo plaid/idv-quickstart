@@ -21,7 +21,7 @@ let db;
 
 const APP_PORT = process.env.APP_PORT || 8000;
 const ID_VER_TEMPLATE = process.env.TEMPLATE_ID;
-const LIGHTNING_ONLY_NO_SMS_ID = process.env.LIGHTNING_ONLY_NO_SMS_ID;
+const DATA_SOURCE_ONLY_NO_SMS_ID = process.env.DATA_SOURCE_ONLY_NO_SMS_ID;
 const PLAID_ENV = (process.env.PLAID_ENV || "sandbox").toLowerCase();
 
 /**
@@ -398,7 +398,7 @@ app.post("/server/generate_shareable_url", async (req, res, next) => {
  * purely on the server without any additional steps required by the user.
  *
  * This only works if:
- * a) You have specified a "lightning only" verification flow
+ * a) You have specified a "data source only" verification flow
  * b) You have disabled SMS verification, which you should only do if your app
  * already verifies the user's phone number
  * c) Your application already collects all the information you need to verify
@@ -412,7 +412,7 @@ app.post("/server/server_side_idv", async (req, res, next) => {
 
     const response = await plaidClient.identityVerificationCreate({
       is_shareable: false,
-      template_id: LIGHTNING_ONLY_NO_SMS_ID,
+      template_id: DATA_SOURCE_ONLY_NO_SMS_ID,
       is_idempotent: true,
       gave_consent: true,
       user: {
@@ -427,7 +427,7 @@ app.post("/server/server_side_idv", async (req, res, next) => {
           postal_code: "46001",
         },
         date_of_birth: "1975-01-18",
-        phone_number: "+19876543212",
+        phone_number: "+12345678909",
         id_number: {
           type: IDNumberType.UsSsnLast4,
           value: "6789",
