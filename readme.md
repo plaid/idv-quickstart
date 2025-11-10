@@ -50,7 +50,7 @@ for this application to run.
 ## 4. Create an Identity Verification template if you don't have one already
 
 1. Head over to the "Identity Verification" section of the dashboard
-   (you can find it under "Products" in the left nav).
+   (you can find it under "Products" in the left nav). If you don't see it, contact Sales or your Account Manager to request access.
 2. Switch the toggle on the upper right of your screen to Sandbox to set up a
    template in Sandbox mode
 3. If there's already an Identity Verification template you want to use, you can
@@ -124,7 +124,7 @@ a public server, one common option is to use a tool like
 [ngrok](https://ngrok.com/) to open up a tunnel from the outside world to a
 specific port running on `localhost`.
 
-The sample application users a separate server to receive webhooks running on
+The sample application uses a separate server to receive webhooks running on
 port 8001, so if you have ngrok installed, you can run
 
 ```

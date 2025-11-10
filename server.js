@@ -1,4 +1,4 @@
-require("dotenv").config();
+require("dotenv").config({ quiet: true });
 const express = require("express");
 const bodyParser = require("body-parser");
 const fs = require("fs");
