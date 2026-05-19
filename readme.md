@@ -99,7 +99,7 @@ You can keep `sandbox` as your environment.
 
 For `TEMPLATE_ID`, we'll need the ID of the Identity Verification template that
 you created above. You can do this by selecting your template from the
-[templates screen](https://idv-playground.plaid.com/flow/templates/), selecting
+[templates screen](https://dashboard.plaid.com/sandbox/identity_verification/templates), selecting
 the template you created, and then clicking the **Integration** button on top.
 
 You can leave `DATA_SOURCE_ONLY_NO_SMS_ID` blank for now. We'll return to this in
