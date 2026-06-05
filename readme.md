@@ -44,7 +44,7 @@ cd idv-quickstart
 
 ## 3. Install the required packages
 
-Run `npm install` inside your directory to install of the Node packages required
+Run `npm install` inside your directory to install all the Node packages required
 for this application to run.
 
 ## 4. Create an Identity Verification template if you don't have one already
@@ -65,13 +65,13 @@ enter a real working URL as your privacy policy link. You should
 7. For the **Workflow**, you can configure  the behavior you'd like to see under Workflow Management.
 
      PII Verification
-   - Data source verification works by comparing the user's verified phone number
-     and information again several data sources.
-   - Document verification asks your user to take pictures of documentation such
-     as drivers licenses or passports.
-   - Select whatever workflow you would like to see. **Fallback to document**
-     verification is a common option, but you could also select **Require both
-     data source and document verification** if you wish to experience the entire
+   - Data Source Verification works by comparing the user's verified phone number
+     and information against several data sources.
+   - Documentary Verification asks your user to take pictures of documentation such
+     as driver's licenses or passports.
+   - Select whatever workflow you would like to see. **Fallback to Documentary Verification**
+     is a common option, but you could also select **Require both Data Source and
+     Documentary Verification** if you wish to experience the entire
      Identity Verification process. You can always change this later.
 
    Selfie Behavior 
@@ -180,7 +180,7 @@ application simulates four different ways that a user could verify their
 identity. Obviously, in a real app, you wouldn't present all four options to a
 user; this is just for demonstration purposes.
 
-Create an account or sign in with a existing account to start the process.
+Create an account or sign in with an existing account to start the process.
 
 ## 1. The Standard flow
 
@@ -194,19 +194,19 @@ identity, that of Leslie Knope with the values specified
 [here](https://plaid.com/docs/identity-verification/testing/). The UI in Sandbox
 mode will also give you these values in the upper-right side of the screen.
 
-With Data Source verification, if you fill out these values correctly, your
+With Data Source Verification, if you fill out these values correctly, your
 identity will be accepted.
 
 If you fill out these values incorrectly (and have selected the appropriate
-workflow), Identity Verification will fall back to Document verification.
+workflow), Identity Verification will fall back to Documentary Verification.
 
-In Document verification, you will be asked to take pictures of an appropriate
+In Documentary Verification, you will be asked to take pictures of an appropriate
 piece of identification using your phone. In the Sandbox environment, the
-application will assume you always submit a valid drivers license
+application will assume you always submit a valid driver's license
 with the same name and date of birth as that of our test user. (Leslie Knope,
 January 18, 1975)
 
-So if you wish to see what a "failed Data Source, but passed Documentation" flow
+So if you wish to see what a "failed Data Source Verification, but passed Documentary Verification" flow
 looks like, try entering a different phone number, social security number,
 and/or address, but make sure to enter the correct name and birthday.
 
@@ -245,7 +245,7 @@ app.
 
 If you want to see more details about a user's latest Identity Verification
 attempt, the best place to do this would be the Identity Verification section of
-the Plaid Dashboard. Click into the verificaiton template you used in the demo. From there, you'll be able to see full details about every
+the Plaid Dashboard. Click into the verification template you used in the demo. From there, you'll be able to see full details about every
 user attempt by status: What they entered, why they might have failed, and you can perform
 important actions like ask your user to retry different steps.
 
@@ -317,7 +317,7 @@ starting the Identity Verification flow.
 To try out the pre-fill flow, click on the **Pre-fill some data** button. We'll
 simulate entering the name, date of birth, and mailing address for our test
 user. Then click the **Verify my identity** button. You'll notice that when you
-verify your user's identity this time, you'll have much fewer fields to fill
+verify your user's identity this time, you'll have far fewer fields to fill
 out.
 
 Note that you have to add the user's information before starting the Identity
@@ -330,14 +330,14 @@ Again, make sure to view the code for the full details, but essentially:
 1. The server makes a call to `/identity_verification/create` to initiate an
    Identity Verification session, adding in whatever information we already know
    about the user.
-2. This call returns a Identity Verification session ID, which we store in our
+2. This call returns an Identity Verification session ID, which we store in our
    database.
 3. Note that because of the way our application works, we already have a link
    token generated before we make a call to `/identity_verification/create`.
    This is fine -- there's no need to regenerate a new Link token.
 4. When the client runs Link, Identity Verification will see that the `user_id`
    which was used to generate the Link token is the same as the `user_id` which
-   was used to create a Identity Verification session, and it won't ask the user
+   was used to create an Identity Verification session, and it won't ask the user
    to enter information that it already received in step 1.
 5. We then proceed with steps 3-6 in the Standard flow. The Identity
    Verification session ID received by Link and your webhooks will be the same
@@ -399,7 +399,7 @@ complete the process.
 
 ### How it works
 
-1. The server makes a call to `/identity_verification/create` to initiate a
+1. The server makes a call to `/identity_verification/create` to initiate an
    Identity Verification session, adding the `is_shareable: true` argument to
    indicate that we want to generate a URL that can be shared with the user.
 2. This URL is then presented to the user, which they can open in a separate
