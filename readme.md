@@ -65,13 +65,13 @@ enter a real working URL as your privacy policy link. You should
 7. For the **Workflow**, you can configure  the behavior you'd like to see under Workflow Management.
 
      PII Verification
-   - Data source verification works by comparing the user's verified phone number
+   - Data Source Verification works by comparing the user's verified phone number
      and information against several data sources.
-   - Document verification asks your user to take pictures of documentation such
+   - Documentary Verification asks your user to take pictures of documentation such
      as driver's licenses or passports.
-   - Select whatever workflow you would like to see. **Fallback to document**
-     verification is a common option, but you could also select **Require both
-     data source and document verification** if you wish to experience the entire
+   - Select whatever workflow you would like to see. **Fallback to Documentary Verification**
+     is a common option, but you could also select **Require both Data Source and
+     Documentary Verification** if you wish to experience the entire
      Identity Verification process. You can always change this later.
 
    Selfie Behavior 
@@ -194,19 +194,19 @@ identity, that of Leslie Knope with the values specified
 [here](https://plaid.com/docs/identity-verification/testing/). The UI in Sandbox
 mode will also give you these values in the upper-right side of the screen.
 
-With Data Source verification, if you fill out these values correctly, your
+With Data Source Verification, if you fill out these values correctly, your
 identity will be accepted.
 
 If you fill out these values incorrectly (and have selected the appropriate
-workflow), Identity Verification will fall back to Document verification.
+workflow), Identity Verification will fall back to Documentary Verification.
 
-In Document verification, you will be asked to take pictures of an appropriate
+In Documentary Verification, you will be asked to take pictures of an appropriate
 piece of identification using your phone. In the Sandbox environment, the
 application will assume you always submit a valid driver's license
 with the same name and date of birth as that of our test user. (Leslie Knope,
 January 18, 1975)
 
-So if you wish to see what a "failed Data Source, but passed Documentation" flow
+So if you wish to see what a "failed Data Source Verification, but passed Documentary Verification" flow
 looks like, try entering a different phone number, social security number,
 and/or address, but make sure to enter the correct name and birthday.
 
