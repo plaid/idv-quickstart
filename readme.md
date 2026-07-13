@@ -12,7 +12,7 @@ For a video tour and walkthrough of this sample app, check out the [Plaid Identi
 
 # Installation
 
-We recommend having node version 16.x.x or later before attempting to run this
+We recommend having node version 20.17.x or later before attempting to run this
 application.
 
 ## 1. Make sure you have access to Identity Verification
@@ -411,7 +411,7 @@ complete the process.
 5. The client, meanwhile, is performing some simple polling to fetch this
    database entry every few seconds. You're free to build something more
    sophisticated in your app.
-6. If you don't have webhooks working, the `/server/fake_webhook` endpoint on
+6. If you don't have webhooks working, the `/server/debug/pretend_we_received_webhook` endpoint on
    the server will pretend as though it has received a webhook for this user by
    looking up the most recent Identity Verification session ID that we have
    stored for this user. Then it will perform steps 4-5 with this session ID.
@@ -473,7 +473,7 @@ original Identity Verification template.
    session ID and it updates your user's entry in the database accordingly.
 4. Like in the previous flow, the client is just performing some simple polling
    to re-fetch this database entry every few seconds.
-5. If you don't have webhooks working, the `/server/fake_webhook` endpoint on
+5. If you don't have webhooks working, the `/server/debug/pretend_we_received_webhook` endpoint on
    the server will pretend as though it has received a webhook for this user by
    looking up the most recent Identity Verification session ID that we have
    stored for this user and then running steps 3-4.
