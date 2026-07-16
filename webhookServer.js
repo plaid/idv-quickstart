@@ -1,7 +1,10 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 
-const serverFunctions = require("./server");
+// The main server injects this via getWebhookServer() so that this file
+// doesn't need to require("./server") -- that would create a circular
+// dependency between the two modules.
+let onStatusUpdated = () => {};
 
 /**
  * This is a separate server running on a different port that we use
@@ -76,7 +79,7 @@ function handleIdVerWebhook(code, requestBody) {
       console.log(
         `Webhook report: The status has been updated for IDV session ${idvSession}. Let's update our database.`
       );
-      serverFunctions.updateUserRecordForIDVSession(idvSession);
+      onStatusUpdated(idvSession);
       break;
     default:
       console.log(`I'm not doing anything with the ${code} webhook.`);
@@ -103,7 +106,10 @@ const errorHandler = function (err, req, res, next) {
 
 webhookApp.use(errorHandler);
 
-const getWebhookServer = function () {
+const getWebhookServer = function (statusUpdatedHandler) {
+  if (statusUpdatedHandler != null) {
+    onStatusUpdated = statusUpdatedHandler;
+  }
   return webhookServer;
 };
 
