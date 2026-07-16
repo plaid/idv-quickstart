@@ -105,7 +105,7 @@ app.post("/server/create_new_user", async (req, res, next) => {
       res.cookie("signedInUser", userId, {
         maxAge: 900000,
         httpOnly: true,
-        sameSite: "none",
+        sameSite: "lax",
         secure: false,
       });
     }
@@ -121,7 +121,7 @@ app.post("/server/sign_in", async (req, res, next) => {
     res.cookie("signedInUser", userId, {
       maxAge: 900000,
       httpOnly: true,
-      sameSite: "none",
+      sameSite: "lax",
       secure: false,
     });
     res.json({ signedIn: true });
