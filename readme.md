@@ -22,9 +22,8 @@ First, if you haven't already done so,
 
 You may not have access to Identity Verification initially. Confirm your access
 in the Plaid Dashboard by looking for the "Identity Verification" product in the
-left-hand nav bar, under the "Products" grouping. If it's not present, talk to 
-your account manager or [file a support ticket](https://dashboard.plaid.com/support)
-to request access to Identity Verification.
+left-hand nav bar, under the "Products" grouping. If it's not present, go to the [Products page in the Dashboard](https://dashboard.plaid.com/settings/team/products) and click "Enable Sandbox" under Identity Verification.
+
 
 ## 2. Clone the repository
 
