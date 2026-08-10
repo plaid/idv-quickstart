@@ -25,9 +25,11 @@ const getExistingUsers = async function () {
     hideSelector("#existingUsers");
   } else {
     showSelector("#existingUsers");
-    document.querySelector("#existingUsersSelect").innerHTML = usersList.map(
-      (userObj) => `<option value="${userObj.id}">${userObj.username}</option>`
-    );
+    document.querySelector("#existingUsersSelect").innerHTML = usersList
+      .map(
+        (userObj) => `<option value="${userObj.id}">${userObj.username}</option>`
+      )
+      .join("");
   }
 };
 

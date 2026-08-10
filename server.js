@@ -105,8 +105,8 @@ app.post("/server/create_new_user", async (req, res, next) => {
       res.cookie("signedInUser", userId, {
         maxAge: 900000,
         httpOnly: true,
-        sameSite: "none",
-        secure: "false",
+        sameSite: "lax",
+        secure: false,
       });
     }
     res.json(result);
@@ -121,8 +121,8 @@ app.post("/server/sign_in", async (req, res, next) => {
     res.cookie("signedInUser", userId, {
       maxAge: 900000,
       httpOnly: true,
-      sameSite: "none",
-      secure: "false",
+      sameSite: "lax",
+      secure: false,
     });
     res.json({ signedIn: true });
   } catch (error) {
@@ -530,6 +530,4 @@ const errorHandler = function (err, req, res, next) {
 };
 app.use(errorHandler);
 
-const webhookServer = getWebhookServer();
-
-exports.updateUserRecordForIDVSession = updateUserRecordForIDVSession;
+const webhookServer = getWebhookServer(updateUserRecordForIDVSession);

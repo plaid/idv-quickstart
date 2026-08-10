@@ -36,9 +36,11 @@ export const getIDVList = async function () {
   const starterOption = `<option value=""> -- Pick one--  </option>`;
   document.querySelector("#listOfAttempts").innerHTML =
     starterOption +
-    savedAttemptData.map((result) => {
-      return `<option value="${result["id"]}">${result["created_at"]}</value>`;
-    });
+    savedAttemptData
+      .map((result) => {
+        return `<option value="${result["id"]}">${result["created_at"]}</option>`;
+      })
+      .join("");
   showSelector("#listOfAttempts");
 };
 
