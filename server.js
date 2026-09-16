@@ -1,6 +1,5 @@
 require("dotenv").config({ quiet: true });
 const express = require("express");
-const bodyParser = require("body-parser");
 const fs = require("fs");
 const sqlite3 = require("sqlite3").verbose();
 const dbWrapper = require("sqlite");
@@ -32,8 +31,8 @@ const PLAID_ENV = (process.env.PLAID_ENV || "sandbox").toLowerCase();
 
 const app = express();
 app.use(cookieParser());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 app.use(express.static("public"));
 
 const server = app.listen(APP_PORT, function () {

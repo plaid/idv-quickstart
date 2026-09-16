@@ -1,5 +1,4 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 
 // The main server injects this via getWebhookServer() so that this file
 // doesn't need to require("./server") -- that would create a circular
@@ -17,8 +16,8 @@ const WEBHOOK_PORT = process.env.WEBHOOK_PORT || 8001;
 const PLAID_ENV = (process.env.PLAID_ENV || "sandbox").toLowerCase();
 
 const webhookApp = express();
-webhookApp.use(bodyParser.urlencoded({ extended: false }));
-webhookApp.use(bodyParser.json());
+webhookApp.use(express.urlencoded({ extended: false }));
+webhookApp.use(express.json());
 
 const webhookServer = webhookApp.listen(WEBHOOK_PORT, function () {
   console.log(
