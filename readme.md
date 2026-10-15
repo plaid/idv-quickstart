@@ -12,7 +12,7 @@ For a video tour and walkthrough of this sample app, check out the [Plaid Identi
 
 # Installation
 
-We recommend having node version 20.17.x or later before attempting to run this
+We recommend having Node 20.19+ or 22.12+ before attempting to run this
 application.
 
 ## 1. Make sure you have access to Identity Verification
@@ -188,9 +188,10 @@ client-side widget that Plaid provides to developers that handles most of the UI
 work for you.
 
 To activate the standard flow, click the **Verify My Identity** button. If you
-are running in Sandbox mode, Plaid Identity Verification will only accept one
-identity, that of Leslie Knope with the values specified
-[here](https://plaid.com/docs/identity-verification/testing/). The UI in Sandbox
+are running in Sandbox mode, Plaid Identity Verification accepts the Leslie Knope
+test identity with the values specified
+[here](https://plaid.com/docs/identity-verification/testing/), plus any Sample
+Identities you configure on the Identity Verification page in the Dashboard. The UI in Sandbox
 mode will also give you these values in the upper-right side of the screen.
 
 With Data Source Verification, if you fill out these values correctly, your
