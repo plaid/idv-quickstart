@@ -49,7 +49,7 @@ for this application to run.
 ## 4. Create an Identity Verification template if you don't have one already
 
 1. Head over to the "Identity Verification" section of the dashboard
-   (you can find it under "Products" in the left nav). If you don't see it, contact Sales or your Account Manager to request access.
+   (you can find it under "Products" in the left nav). If you don't see it, enable Sandbox access from the [Products page](https://dashboard.plaid.com/settings/team/products) as described in step 1.
 2. Switch the toggle on the upper right of your screen to Sandbox to set up a
    template in Sandbox mode
 3. If there's already an Identity Verification template you want to use, you can
@@ -140,7 +140,7 @@ will probably look something like:
 
 Unlike many other Plaid products, you won't configure the webhook URL when
 creating an Item. Instead, you'll use the Plaid dashboard at
-https://dashboard.plaid.com/team/webhooks to tell Plaid what endpoint to call
+https://dashboard.plaid.com/developers/webhooks to tell Plaid what endpoint to call
 when sending webhooks. From this page:
 
 - Click **New webhook**.
